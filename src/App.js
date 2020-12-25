@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Fragment } from "react";
-import { BrowserRouter,Route,Router,Switch } from "react-router-dom";
+import { BrowserRouter,Route,Switch } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Home  from "./components/Home";
 import Widgets from './components/Widgets';
