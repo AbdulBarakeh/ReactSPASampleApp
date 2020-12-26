@@ -1,57 +1,27 @@
 import './App.css';
 import React, { Fragment } from "react";
 import { BrowserRouter,Route,Switch } from "react-router-dom";
-import Navbar from './components/Navbar';
 import Home  from "./components/Home";
-import Widgets from './components/Widgets';
-import Wudgets from './components/Wudgets';
-const widgetprods=[
-  {name: 'Master Widget', price:'$125.00'},
-  {name: 'Sub Widget', price:'$115.00'},
-  {name: 'Long Widget', price:'$150.00'},
-  {name: 'Short Widget', price:'$135.00'}
-]
-const wudgetprods=[
-  {name: 'Master Wudget', price:'$75.00'},
-  {name: 'Sub Wudget', price:'$85.00'},
-  {name: 'Long Wudget', price:'$135.00'},
-  {name: 'Short Wudget', price:'$110.00'}
-]
+import SideBar from './components/Sidebar';
+import ViewOne from './components/ViewOne';
+import ViewTwo from './components/ViewTwo';
 
-function App() {
+export class App extends React.Component {
+  render(){
   return (
     <BrowserRouter>
-      <div className="App">
-        <Navbar></Navbar>
-        <div className="container">
+      <div className="fullcontainer">
+        <SideBar></SideBar>
+        <div className="content">
           <Switch>
             <Route exact path="/" component={Home}></Route>
-            <Route
-                exact
-                path='/widgets'
-                render={(props)=>
-                  <Fragment>
-                
-                    <Widgets prods={widgetprods}/>
-                  
-                  </Fragment>
-                }/>
-            <Route
-              exact
-              path='/wudgets'
-              render={(props)=>
-                <Fragment>
-              
-                  <Wudgets prods={wudgetprods}/>
-                
-                </Fragment>
-              }
-            />
+            <Route exact path="/ViewOne" component={() => <ViewOne text={"This is the magnificent ViewOne"} />} /> 
+            <Route exact path="/ViewTwo" component={() => <ViewTwo text={"This is the magnificent ViewTwo"} />} /> 
           </Switch>
         </div> 
       </div>
     </BrowserRouter>
-  );
+  ); 
+  }
 }
 
-export default App;
